@@ -7,8 +7,8 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "aws s3 sync ./public s3://aaaalpooo.io --profile=aaaalpooo.io",
-    "invalidate": "aws cloudfront create-invalidation --profile=aaaalpooo.io --distribution-id E19WDMNL99TZ02 --paths / /index.html /error.html /manifest.webmanifest.json /favicon.ico"
+    "deploy": "aws s3 sync ./public s3://aaaalpooo.io",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E19WDMNL99TZ02 --paths / /index.html /error.html /manifest.webmanifest.json /favicon.ico"
   },
   "dependencies": {
     "@emotion/core": "^10.0.4",
