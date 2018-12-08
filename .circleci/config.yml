@@ -39,7 +39,7 @@ jobs:
           
       #- run: sudo apt-get update
       #- run: sudo apt-get install -y python-pip python-dev
-      #- run: sudo pip install awscli
+      - run: sudo pip install awscli
       - run: yarn build
       - run: yarn deploy
       - run: yarn invalidate
