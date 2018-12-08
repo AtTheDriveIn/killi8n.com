@@ -37,6 +37,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - run: sudo pip install awscli
       - run: yarn build
       - run: yarn deploy
       - run: yarn invalidate
