@@ -1,5 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const createPaginatedPages = require("gatsby-paginate");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
@@ -18,7 +19,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               fields {
@@ -29,18 +30,45 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      // if (result.errors) {
+      //   reject(result.errors);
+      // }
+      // createPaginatedPages({
+      //   edges: result.data.allMarkdownRemark.edges,
+      //   createPage: createPage,
+      //   pageTemplate: "src/templates/blog-post.js",
+      //   pageLength: 5, // This is optional and defaults to 10 if not used
+      //   pathPrefix: "", // This is optional and defaults to an empty string if not used
+      //   context: {} // This is optional and defaults to an empty object if not used
+      // });
+
+      const posts = result.data.allMarkdownRemark.edges;
+      const postsPerPage = 6;
+      const numPages = Math.ceil(posts.length / postsPerPage);
+      Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/blog-post.js`),
+          path: i === 0 ? `/` : `/page/${i + 1}`,
+          component: path.resolve("./src/templates/blog-post-list.js"),
           context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.fields.slug
+            limit: postsPerPage,
+            skip: i * postsPerPage
           }
         });
       });
       resolve();
+
+      // result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      //   createPage({
+      //     path: node.fields.slug,
+      //     component: path.resolve(`./src/templates/blog-post.js`),
+      //     context: {
+      //       // Data passed to context is available
+      //       // in page queries as GraphQL variables.
+      //       slug: node.fields.slug
+      //     }
+      //   });
+      // });
+      // resolve();
     });
   });
 };
