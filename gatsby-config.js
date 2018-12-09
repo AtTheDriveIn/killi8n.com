@@ -10,7 +10,33 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590
+            }
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
+          },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              inlineCodeMarker: "÷"
+            }
+          },
+          "gatsby-remark-copy-linked-files",
+          "gatsby-remark-smartypants"
+        ]
+      }
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 export default class BlogPost extends Component {
   componentDidMount() {
