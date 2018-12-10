@@ -10,3 +10,4 @@ Or [view the live demo here](https://gatsby-starter-hello-world-demo.netlify.com
 
 ## Running in development
 `gatsby develop`
+ yes!
