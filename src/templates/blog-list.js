@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import get from "lodash/get";
 import { Helmet } from "react-helmet";
+import { css } from "@emotion/core";
 
 export default class BlogList extends React.Component {
   render() {
@@ -30,7 +31,7 @@ export default class BlogList extends React.Component {
             <div
               key={node.fields.slug}
               style={{
-                background: "#f8f9fa",
+                background: "#f0eee9",
                 marginTop: "1rem",
                 marginBottom: "1rem",
                 padding: "1rem"
@@ -38,18 +39,22 @@ export default class BlogList extends React.Component {
             >
               {/* <h3> */}
               <Link
-                style={{
-                  boxShadow: "none",
-                  fontSize: "1.5rem",
-                  fontWeight: "800"
-                }}
+                css={css`
+                  boxshadow: none;
+                  font-size: 1.5rem;
+                  fontweight: 800;
+                  text-decoration: none;
+                `}
                 to={node.fields.slug}
               >
                 {title}
               </Link>
               {/* </h3> */}
-              <div>{node.frontmatter.date}</div>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <div style={{ color: "#3e262a" }}>{node.frontmatter.date}</div>
+              <p
+                style={{ color: "#3e262a" }}
+                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+              />
             </div>
           );
         })}
@@ -80,7 +85,7 @@ export default class BlogList extends React.Component {
                 style={{
                   textDecoration: "none",
                   color: i + 1 === currentPage ? "#ffffff" : "",
-                  background: i + 1 === currentPage ? "#007acc" : ""
+                  background: i + 1 === currentPage ? "#fae0ee" : ""
                 }}
               >
                 {i + 1}

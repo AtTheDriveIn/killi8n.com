@@ -18,8 +18,8 @@ export default ({ children }) => (
       <div
         css={css`
           margin: 0 auto;
-          max-width: 700px;
-          padding: ${rhythm(2)};
+          max-width: 1000px;
+          padding: ${rhythm(1)};
           padding-top: ${rhythm(1.5)};
         `}
       >
@@ -35,6 +35,11 @@ export default ({ children }) => (
               text-decoration: none;
               font-weight: 800;
               font-size: 2rem;
+              @media (max-width: 320px) {
+                font-size: 1rem;
+              }
+              text-decoration: none;
+              box-shadow: none;
             `}
           >
             {data.site.siteMetadata.title}
@@ -44,6 +49,11 @@ export default ({ children }) => (
             css={css`
               margin-left: auto;
               font-size: 1.5rem;
+              @media (max-width: 320px) {
+                font-size: 1rem;
+              }
+              text-decoration: none;
+              box-shadow: none;
             `}
           >
             About

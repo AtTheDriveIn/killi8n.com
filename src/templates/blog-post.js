@@ -16,7 +16,7 @@ export default class BlogPost extends Component {
           <title>{post.frontmatter.title}</title>
         </Helmet>
         <div>
-          <h1>{post.frontmatter.title}</h1>
+          <h1 style={{ fontSize: "1.5rem" }}>{post.frontmatter.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
       </Layout>

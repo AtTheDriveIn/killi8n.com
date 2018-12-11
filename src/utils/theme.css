@@ -142,3 +142,19 @@ pre[class*="language-"] {
   padding-left: 0.75em;
   border-left: 0.25em solid #ffa7c4;
 }
+
+body {
+  /* background: #f3ebee; */
+  background: #f4f5f0;
+}
+
+a {
+  color: #e1a6ad;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+a:-webkit-any-link {
+  color: #e1a6ad;
+  text-decoration: none;
+}
