@@ -1,6 +1,6 @@
 ---
 title: "ELK - Elastic Search , Logstash , Kibana 기초"
-date: "2018-12-26"
+date: "2018-12-26 11:00"
 ---
 
 > 출처: 1) https://okdevtv.com/mib/elk/elk5 2) https://logz.io/blog/elk-mac/
@@ -15,6 +15,7 @@ date: "2018-12-26"
 - Kibana는 ElasticSearch에 저장된 Data를 사용자에게 Dashboard 형태로 보여주는 솔루션이다.
 
 ![ELK](https://okdevtv.com/md/elk/images/elk_arch.jpg)
+사진 출처: https://okdevtv.com/mib/elk/elk5
 
 # Good Things☝🏽
 
